@@ -1,0 +1,7 @@
+.idea/
+.gradle/
+__pycache__/
+out/
+build/
+*.pyc
+.ipynb_checkpoints/
