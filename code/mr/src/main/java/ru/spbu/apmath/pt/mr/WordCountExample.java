@@ -2,6 +2,7 @@ package ru.spbu.apmath.pt.mr;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -37,6 +38,7 @@ public class WordCountExample extends Configured implements Tool {
     public int run(final String[] args) throws Exception {
         final Job job = Job.getInstance(getConf());
         job.setJobName("wordcount");
+        job.setJarByClass(WordCountExample.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
@@ -45,14 +47,14 @@ public class WordCountExample extends Configured implements Tool {
         job.setMapperClass(TextMapper.class);
         job.setReducerClass(TextReducer.class);
 
+        // удаляем директорию куда будет писаться результат
+        FileSystem.get(getConf()).delete(new Path(args[1]), true);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        // удаляем директорию с результатом
-        //FileSystem.get(getConf()).delete(new Path(args[1]), true);
         job.waitForCompletion(true);
 
         return 0;

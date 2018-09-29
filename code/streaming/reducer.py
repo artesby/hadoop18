@@ -10,10 +10,10 @@ for line in sys.stdin:
     if prev_k != k and (prev_k is not None):
         mean = compute_mean(vals)
         vals = []
-        print('%s\t%.3f' % (k, mean))
+        print('%s\t%.3f' % (prev_k, mean))
     vals.append(float(v))
     prev_k = k
         
 mean = compute_mean(vals)
-print('%s\t%.3f' % (k, mean))
+print('%s\t%.3f' % (prev_k, mean))
 
