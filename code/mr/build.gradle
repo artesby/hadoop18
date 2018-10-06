@@ -20,7 +20,7 @@ repositories {
 dependencies {
     compile 'org.apache.hadoop:hadoop-common:2.8.1'
     compile 'org.apache.hadoop:hadoop-mapreduce-client-jobclient:2.8.1'
-    compile 'org.apache.lucene:lucene-analyzers-common:5.0.0'
+    compile 'org.apache.lucene:lucene-analyzers-common:6.4.0'
     compile 'commons-httpclient:commons-httpclient:3.1'
 }
 

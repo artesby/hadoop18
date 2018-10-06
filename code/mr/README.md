@@ -13,3 +13,8 @@
   Use classpath of module: mt-intro_main
   
 6. Запускаем.
+
+Запуск из hadoop sandbox:
+> yarn jar mt-intro-1.0-SNAPSHOT.jar ru.spbu.apmath.pt.mr.WordCountExample texts.txt out
+
+Файл `texts.txt` должен быть в корне HDFS.

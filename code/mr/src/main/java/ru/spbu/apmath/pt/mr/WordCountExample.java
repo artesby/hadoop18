@@ -43,6 +43,8 @@ public class WordCountExample extends Configured implements Tool {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
+        job.setCombinerClass(TextReducer.class);
+
         // указываем Mapper и Reducer
         job.setMapperClass(TextMapper.class);
         job.setReducerClass(TextReducer.class);
