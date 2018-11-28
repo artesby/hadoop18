@@ -1,0 +1,27 @@
+>>>time python3 job.py ../../data/wiki.txt -o result_local
+
+real	1m47.836s
+user	1m45.255s
+sys	0m2.496s
+
+
+>>>time python3 job.py -r hadoop hdfs:///user/root/wiki.txt -o hdfs:///user/root/result_hadoop
+
+real	1m25.549s
+user	0m24.435s
+sys	0m1.266s
+
+
+>>>time python3 job.py ../../data/wiki_trunc.txt -o result_local
+
+real	0m3.195s
+user	0m3.059s
+sys	0m0.128s
+
+
+>>>time python3 job.py -r hadoop hdfs:///user/root/wiki_trunc.txt -o hdfs:///user/root/result_hadoop_trunc
+
+real	0m29.239s
+user	0m22.534s
+sys	0m1.124s
+
